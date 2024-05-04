@@ -1,0 +1,47 @@
+Operating Systems
+Assignment 6: Memory Management
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Type make to create 2 executables; oss & ass6
+Run ./oss via command line to run program where main will exec ass6 executable
+
+make clean to remove executables and log file
+
+My memoryManagement.txt output will output the following information:
+Master: P2 requesting read of address 25237 at time xxx:xxx
+Master: Address 25237 in frame 13, giving data to P2 at time xxx:xxx
+Master: P5 requesting write of address 12345 at time xxx:xxx
+Master: Address 12345 in frame 203, writing data to frame at time xxx:xxx
+Master: P2 requesting write of address 03456 at time xxx:xxx
+Master: Address 12345 is not in a frame, pagefault
+Master: Clearing frame 107 and swapping in p2 page 3
+Master: Dirty bit of frame 107 set, adding additional time to the clock
+Master: Indicating to P2 that write has happened to address 03456
+**Above is taken from project specs**
+
+When a process terminates, oss should log its termination in the log file and also indicate its effective memory
+access time. oss should aaddlso print its memory map every second showing the allocation of frames. You can display
+unallocated frames by a period.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Cliff Notes:
+
+ass6 process will fork at random times (between 1 and 500 milliseconds of your logical clock)
+Max of 18 user processes in the system
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Please note that I used Semaphore and Message Queue for interprocess controlling
+for communicatation between parent and child.
+Message queue used to talk to children from forked processes.
+
+Message Queue contains the following variables in struct
+ long messageIndex; // index for child
+ char messageString; // message string for palindrome or non-palindrome
+
+Semaphore used to protect critical resources from oss & ass6 executables
+ Limit max number of processes to 18
+ Lock I/O file
+ Message queue & semaphores are closed via message queue
+
