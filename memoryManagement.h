@@ -51,7 +51,7 @@ extern int percentage;
 
 pid_t forkChild(char *sharedTimeMem, char *sharedSemMem, char*sharedPositionMem, char*rscShrdMem, char*sharedLimitMem, char*sharedPercentageMem){
         if((pid = fork()) == 0){
-                execlp("./ass6", "./ass6", sharedTimeMem, sharedSemMem, sharedPositionMem, rscShrdMem, sharedLimitMem, sharedPercentageMem, NULL);
+                execlp("./worker", "./worker", sharedTimeMem, sharedSemMem, sharedPositionMem, rscShrdMem, sharedLimitMem, sharedPercentageMem, NULL);
         }
         if(pid < 0){
                 printf("Fork Error %s\n", strerror(errno));

@@ -1,7 +1,9 @@
 Operating Systems
 Assignment 6: Memory Management
 
+//memory management 
 
+Series of functions related to managing shared memory and process forking. These functions facilitate the creation of shared memory segments, attaching to them, forking child processes, and managing command-line arguments.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Type make to create 2 executables; oss & ass6
 Run ./oss via command line to run program where main will exec ass6 executable
@@ -27,7 +29,7 @@ unallocated frames by a period.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Cliff Notes:
 
-ass6 process will fork at random times (between 1 and 500 milliseconds of your logical clock)
+worker process will fork at random times (between 1 and 500 milliseconds of your logical clock)
 Max of 18 user processes in the system
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -45,3 +47,6 @@ Semaphore used to protect critical resources from oss & ass6 executables
  Lock I/O file
  Message queue & semaphores are closed via message queue
 
+---------------------------------------------------------------------------
+
+Problem : I am  encountering an issue related to resource availability, particularly when forking new processes in my project. The error message "Resource temporarily unavailable" indicates that the system is unable to allocate the necessary resources to create new processes.

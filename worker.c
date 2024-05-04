@@ -2,6 +2,7 @@
 
  struct memory_resource {
       long msgString;
+      
       char msgChar[100];
  
  } message;
@@ -19,6 +20,7 @@
         *eventTimeSeconds = *seconds;
 
  int main(int argc, char *argv[]) {
+
         int complete = 0, request = 0;
         srand(getpid());
         key_t msgKey = ftok(".",432820);
@@ -67,6 +69,8 @@
         shmdt(semPtr);
         shmdt(rscPointer);
         shmctl(msgid, IPC_RMID, NULL);
-        exit (0);
-}
+      exit (0);
+
+ }
+
 
